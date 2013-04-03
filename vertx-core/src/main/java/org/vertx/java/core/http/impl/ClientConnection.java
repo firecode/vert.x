@@ -217,7 +217,7 @@ class ClientConnection extends AbstractConnection {
       } catch (WebSocketHandshakeException e) {
         client.handleException(e);
       } finally {
-        ctx.pipeline().removeAndForward(this);
+        ctx.pipeline().remove(this);
         ctx.fireInboundBufferUpdated();
       }
     }
